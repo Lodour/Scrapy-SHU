@@ -8,7 +8,7 @@
 import scrapy
 
 
-class ScoreTermItem(scrapy.Item):
+class ScoreItem(scrapy.Item):
     term_id = scrapy.Field()
     course_number = scrapy.Field()
     course_name = scrapy.Field()

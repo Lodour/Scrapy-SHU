@@ -2,7 +2,7 @@
 
 import scrapy
 
-from ..items import ScoreTermItem
+from ..items import ScoreItem
 from ..mixins import CaptchaLoginSpiderMixin
 
 
@@ -10,7 +10,7 @@ class MyScoreTermSpider(scrapy.Spider, CaptchaLoginSpiderMixin):
     name = 'my_score_term'
     allowed_domains = ['cj.shu.edu.cn']
     start_urls = ['http://cj.shu.edu.cn/']
-    fields_to_export = ScoreTermItem.fields_to_export
+    fields_to_export = ScoreItem.fields_to_export
 
     def start_requests(self):
         for u in self.start_urls:
@@ -39,4 +39,4 @@ class MyScoreTermSpider(scrapy.Spider, CaptchaLoginSpiderMixin):
             term_id = response.meta['term_id']
             fields = course.xpath('td[1 < position()]/text()').extract()
             data = {k: fields[i] for i, k in enumerate(self.fields_to_export[1:])}
-            yield ScoreTermItem(term_id=term_id, **data)
+            yield ScoreItem(term_id=term_id, **data)
