@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import scrapy
 
 from ..items import ScoreItem
