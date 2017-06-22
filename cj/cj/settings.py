@@ -65,6 +65,8 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
+    'cj.pipelines.StripPipeline': 100,
+    'cj.pipelines.EmptyScorePipeline': 200,
     'cj.pipelines.CsvExportPipeline': 300,
 }
 

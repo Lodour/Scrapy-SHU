@@ -7,7 +7,22 @@
 import time
 
 from scrapy import signals
+from scrapy.exceptions import DropItem
 from scrapy.exporters import CsvItemExporter
+
+
+class StripPipeline(object):
+    def process_item(self, item, spider):
+        for key in item.fields:
+            item[key] = item[key].strip()
+        return item
+
+
+class EmptyScorePipeline(object):
+    def process_item(self, item, spider):
+        if any(item.values()):
+            return item
+        raise DropItem('课程为空')
 
 
 class CsvExportPipeline(object):
