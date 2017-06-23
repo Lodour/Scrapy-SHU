@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Scrapy-SHU.iml" filepath="$PROJECT_DIR$/.idea/Scrapy-SHU.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/ShuCrawler.iml" filepath="$PROJECT_DIR$/.idea/ShuCrawler.iml" />
     </modules>
   </component>
 </project>
